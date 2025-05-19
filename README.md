@@ -81,6 +81,23 @@ Paste your API key in quotes.
 - Click `Run > extractAndTrackJobEmails`
 - The first time, you'll need to authorize permissions
 
+### 5. First-Time Setup Tip: Expand Date Range
+
+By default, the script only processes the last **3 days** of emails using this line:
+
+```javascript
+GmailApp.search('subject:("Thank you for Applying" OR "application update") newer_than:3d')
+```
+
+If you want to load your full application history the first time you run the script, change `3d` to a larger window like `180d` (for ~6 months):
+
+```javascript
+GmailApp.search('subject:("Thank you for Applying" OR "application update") newer_than:180d')
+```
+
+After your first run, change it back to `3d` to avoid reprocessing old emails repeatedly.
+
+
 ---
 
 ## ⏰ Automate It (Optional)
